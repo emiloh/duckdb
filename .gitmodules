@@ -1,0 +1,3 @@
+[submodule "benchmark/ssb/data/ads2024-ssb-dbgen"]
+	path = benchmark/ssb/data/ads2024-ssb-dbgen
+	url = https://github.itu.dk/pito/ads2024-ssb-dbgen.git
