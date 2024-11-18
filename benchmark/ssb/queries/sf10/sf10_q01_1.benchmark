@@ -1,0 +1,6 @@
+# name: sf10/q01_1
+# description: Run SSB query 1.1 against database with SF10
+# group: [SSB_SF10]
+
+template benchmark/ssb/queries/sf10/sf10_template.benchmark.in
+QUERY_NUMBER=01_1
