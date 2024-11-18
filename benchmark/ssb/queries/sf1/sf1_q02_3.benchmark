@@ -1,0 +1,6 @@
+# name: sf1/q02_3.benchmark
+# description: Run SSB query 2.3 against database with SF1
+# group: [SSB_SF1]
+
+template benchmark/ssb/queries/sf1/sf1_template.benchmark.in
+QUERY_NUMBER=02_3
