@@ -86,8 +86,8 @@ CREATE TABLE lineorder (
     FOREIGN KEY (LO_COMMITDATE) REFERENCES date(D_DATEKEY)
 );
 
-COPY customer FROM "../../data/sf100/customer.tbl";
-COPY supplier FROM "../../data/sf100/supplier.tbl";
-COPY part FROM "../../data/sf100/part.tbl";
-COPY date FROM "../../data/sf100/date.tbl";
-COPY lineorder FROM "../../data/sf100/lineorder.tbl";
+COPY customer FROM "~/ads_project2/ads_proj2/duckdb/benchmark/ssb/data/sf100/customer.tbl";
+COPY supplier FROM "~/ads_project2/ads_proj2/duckdb/benchmark/ssb/data/sf100/supplier.tbl";
+COPY part FROM "~/ads_project2/ads_proj2/duckdb/benchmark/ssb/data/sf100/part.tbl";
+COPY date FROM "~/ads_project2/ads_proj2/duckdb/benchmark/ssb/data/sf100/date.tbl";
+COPY lineorder FROM "~/ads_project2/ads_proj2/duckdb/benchmark/ssb/data/sf100/lineorder.tbl";
