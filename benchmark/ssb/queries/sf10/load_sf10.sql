@@ -1,9 +1,7 @@
-ATTACH 'sf10.duckdb' as sf1db;
+ATTACH 'sf10.duckdb' as sf10db;
 
--- Reduce and increase sizew of temporary folder (disk spillage)
-SET max_temp_directory_size = '300GB';
+SET max_temp_directory_size = '100GB';
 SET preserve_insertion_order = false;
-SET memory_limit = '32GB';
 
 CREATE TABLE customer (
     C_CUSTKEY    BIGINT,
@@ -88,8 +86,8 @@ CREATE TABLE lineorder (
     FOREIGN KEY (LO_COMMITDATE) REFERENCES date(D_DATEKEY)
 );
 
-INSERT INTO customer  SELECT * EXCLUDE (column8)  FROM read_csv('~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf10/customer.tbl');
-INSERT INTO supplier  SELECT * EXCLUDE (column7)  FROM read_csv('~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf10/supplier.tbl');
-INSERT INTO part      SELECT * EXCLUDE (column9)  FROM read_csv('~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf10/part.tbl');
-INSERT INTO date      SELECT * EXCLUDE (column17) FROM read_csv('~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf10/date.tbl');
-INSERT INTO lineorder SELECT * EXCLUDE (column17) FROM read_csv("~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf10/lineorder.tbl");
+COPY customer FROM "../../data/sf10/customer.tbl";
+COPY supplier FROM "../../data/sf10/supplier.tbl";
+COPY part FROM "../../data/sf10/part.tbl";
+COPY date FROM "../../data/sf10/date.tbl";
+COPY lineorder FROM "../../data/sf10/lineorder.tbl";

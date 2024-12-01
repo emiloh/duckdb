@@ -1,5 +1,8 @@
 ATTACH 'sf1.duckdb' as sf1db;
 
+SET max_temp_directory_size = '100GB';
+SET preserve_insertion_order = false;
+
 CREATE TABLE customer (
     C_CUSTKEY    BIGINT,
     C_NAME       VARCHAR,
@@ -83,8 +86,8 @@ CREATE TABLE lineorder (
     FOREIGN KEY (LO_COMMITDATE) REFERENCES date(D_DATEKEY)
 );
 
-INSERT INTO customer  SELECT * EXCLUDE (column8)  FROM read_csv('~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf1/customer.tbl');
-INSERT INTO supplier  SELECT * EXCLUDE (column7)  FROM read_csv('~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf1/supplier.tbl');
-INSERT INTO part      SELECT * EXCLUDE (column9)  FROM read_csv('~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf1/part.tbl');
-INSERT INTO date      SELECT * EXCLUDE (column17) FROM read_csv('~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf1/date.tbl');
-INSERT INTO lineorder SELECT * EXCLUDE (column17) FROM read_csv("~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf1/lineorder.tbl");
+COPY customer FROM "../../data/sf1/customer.tbl";
+COPY supplier FROM "../../data/sf1/supplier.tbl";
+COPY part FROM "../../data/sf1/part.tbl";
+COPY date FROM "../../data/sf1/date.tbl";
+COPY lineorder FROM "../../data/sf1/lineorder.tbl";

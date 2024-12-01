@@ -1,6 +1,5 @@
-ATTACH 'sf100.duckdb' as sf1db;
+ATTACH 'sf100.duckdb' as sf100db;
 
--- Reduce and increase sizew of temporary folder (disk spillage)
 SET max_temp_directory_size = '100GB';
 SET preserve_insertion_order = false;
 
@@ -87,19 +86,8 @@ CREATE TABLE lineorder (
     FOREIGN KEY (LO_COMMITDATE) REFERENCES date(D_DATEKEY)
 );
 
-COPY customer FROM "~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf100/customer.csv";
-COPY supplier FROM "~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf100/supplier.csv";
-COPY part FROM "~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf100/part.csv";
-COPY date FROM "~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf100/date.csv";
-COPY lineorder FROM "~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf100/lineorder.csv";
---INSERT INTO customer  SELECT * EXCLUDE (column8)  FROM read_csv('~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf100/customer.tbl');
---INSERT INTO supplier  SELECT * EXCLUDE (column7)  FROM read_csv('~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf100/supplier.tbl');
---INSERT INTO part      SELECT * EXCLUDE (column9)  FROM read_csv('~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf100/part.tbl');
---INSERT INTO date      SELECT * EXCLUDE (column17) FROM read_csv('~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf100/date.tbl');
---INSERT INTO lineorder SELECT * EXCLUDE (column17) FROM read_csv("~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf100/lineorder_1.tbl");
---INSERT INTO lineorder SELECT * EXCLUDE (column17) FROM read_csv("~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf100/lineorder_2.tbl");
---INSERT INTO lineorder SELECT * EXCLUDE (column17) FROM read_csv("~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf100/lineorder_3.tbl");
---INSERT INTO lineorder SELECT * EXCLUDE (column17) FROM read_csv("~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf100/lineorder_4.tbl");
---INSERT INTO lineorder SELECT * EXCLUDE (column17) FROM read_csv("~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf100/lineorder_5.tbl");
---INSERT INTO lineorder SELECT * EXCLUDE (column17) FROM read_csv("~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf100/lineorder_6.tbl");
---INSERT INTO lineorder SELECT * EXCLUDE (column17) FROM read_csv("~/Documents/uni/ads/proj2/duckdb/benchmark/ssb/data/sf100/lineorder_7.tbl");
+COPY customer FROM "../../data/sf100/customer.tbl";
+COPY supplier FROM "../../data/sf100/supplier.tbl";
+COPY part FROM "../../data/sf100/part.tbl";
+COPY date FROM "../../data/sf100/date.tbl";
+COPY lineorder FROM "../../data/sf100/lineorder.tbl";
