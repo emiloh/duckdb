@@ -79,15 +79,15 @@ CREATE TABLE lineorder (
     LO_COMMITDATE      DATE,
     LO_SHIPMODE        VARCHAR,
     PRIMARY KEY (LO_ORDERKEY, LO_LINENUMBER),
-    FOREIGN KEY (LO_CUSTKEY)    REFERENCES customer(C_CUSTKEY),
-    FOREIGN KEY (LO_PARTKEY)    REFERENCES part(P_PARTKEY),
-    FOREIGN KEY (LO_SUPPKEY)    REFERENCES supplier(S_SUPPKEY),
-    FOREIGN KEY (LO_ORDERDATE)  REFERENCES date(D_DATEKEY),
-    FOREIGN KEY (LO_COMMITDATE) REFERENCES date(D_DATEKEY)
+    --FOREIGN KEY (LO_CUSTKEY)    REFERENCES customer(C_CUSTKEY),
+    --FOREIGN KEY (LO_PARTKEY)    REFERENCES part(P_PARTKEY),
+    --FOREIGN KEY (LO_SUPPKEY)    REFERENCES supplier(S_SUPPKEY),
+    --FOREIGN KEY (LO_ORDERDATE)  REFERENCES date(D_DATEKEY),
+    --FOREIGN KEY (LO_COMMITDATE) REFERENCES date(D_DATEKEY)
 );
 
-COPY customer FROM "~/ads_project2/ads_proj2/duckdb/benchmark/ssb/data/sf100/customer.tbl";
-COPY supplier FROM "~/ads_project2/ads_proj2/duckdb/benchmark/ssb/data/sf100/supplier.tbl";
-COPY part FROM "~/ads_project2/ads_proj2/duckdb/benchmark/ssb/data/sf100/part.tbl";
-COPY date FROM "~/ads_project2/ads_proj2/duckdb/benchmark/ssb/data/sf100/date.tbl";
-COPY lineorder FROM "~/ads_project2/ads_proj2/duckdb/benchmark/ssb/data/sf100/lineorder.tbl";
+COPY customer FROM "/home/group10/ads_project2/ads_proj2/duckdb/benchmark/ssb/data/sf100/customer.tbl";
+COPY supplier FROM "/home/group10/ads_project2/ads_proj2/duckdb/benchmark/ssb/data/sf100/supplier.tbl";
+COPY part FROM "/home/group10/ads_project2/ads_proj2/duckdb/benchmark/ssb/data/sf100/part.tbl";
+COPY date FROM "/home/group10/ads_project2/ads_proj2/duckdb/benchmark/ssb/data/sf100/date.tbl";
+COPY lineorder FROM "/home/group10/ads_project2/ads_proj2/duckdb/benchmark/ssb/data/sf100/lineorder.tbl";
